@@ -1,4 +1,88 @@
 (() => {
+  // Inject basic styling so the app looks vibrant even without an external CSS file
+  const style = document.createElement('style');
+  style.textContent = `
+    :root {
+      --bg: #0f172a;
+      --text: #f1f5f9;
+      --accent: #38bdf8;
+      --accent-dark: #0284c7;
+      --card-bg: #1e293b;
+      --card-shadow: rgba(0,0,0,0.2);
+      --btn-alt: #64748b;
+    }
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      background: var(--card-bg);
+      padding: 0.5rem;
+      box-shadow: 0 2px 4px var(--card-shadow);
+    }
+    nav button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    nav button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    nav button.active {
+      background: #9333ea;
+    }
+    .view {
+      padding: 1rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 0.5rem;
+      padding: 1rem;
+      box-shadow: 0 4px 8px var(--card-shadow);
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .price {
+      color: #fbbf24;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    .btn.alt {
+      background: var(--btn-alt);
+    }
+    .btn.alt:hover {
+      background: #475569;
+    }
+    .muted {
+      color: #94a3b8;
+    }
+  `;
+  document.head.appendChild(style);
+
   const SERVICES = [
     {
       id: 'basic-build',
